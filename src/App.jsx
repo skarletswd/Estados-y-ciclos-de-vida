@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 // import './App.css'
@@ -8,8 +8,15 @@ function App() {
   const [count, setCount] = useState(0);
 
   const decrementar = () => {
-    setCount(count -1)
-  }
+    if (count > 0) {
+      setCount(count -1);
+    }
+    
+  };
+
+  useEffect(()=> {
+    console.log("useEffect")
+  }, [count]);
 
 
   return (
@@ -19,6 +26,6 @@ function App() {
       <button onClick={decrementar}>Decrementar</button>
     </>
   )
-}
+};
 
 export default App
